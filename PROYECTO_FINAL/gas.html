@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gas Natural</title>
+  <link rel="stylesheet" href="estilo.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <div class="logo">🌱 Energías</div>
+    <nav>
+      <ul class="menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li class="dropdown">
+          <a href="#">Tipos de Energía ▾</a>
+          <ul class="submenu">
+            <li><span>Renovables ▸</span>
+              <ul>
+                <li><a href="hidroelectrica.html">Hidroeléctrica</a></li>
+                <li><a href="solar.html">Solar</a></li>
+                <li><a href="eolica.html">Eólica</a></li>
+                <li><a href="biomasa.html">Biomasa</a></li>
+              </ul>
+            </li>
+            <li><span>No Renovables ▸</span>
+              <ul>
+                <li><a href="gas.html">Gas Natural</a></li>
+                <li><a href="carbon.html">Carbón</a></li>
+                <li><a href="acpm.html">ACPM</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="calcula.html">Calcula tu consumo</a></li>
+        <li><a href="quienes.html">¿Quiénes somos?</a></li>
+      </ul>
+    </nav>
+  </header>
+
+<section class="cards-container">
+
+    <div class="card"><a href="gas.html">Gas Natural</a></div>
+    <div class="card"><a href="carbon.html">Carbón</a></div>
+    <div class="card"><a href="acpm.html">ACPM</a></div>
+    
+  </section>
+
+
+  <section class="banner-gasnatural">
+    <h1>Gas Natural</h1>
+    <p>El gas natural es un combustible fósil que se utiliza para generar electricidad, calefacción y como combustible en vehículos.</p>
+  </section>
+
+  <section class="video">
+    <h2>Video Explicativo</h2>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/3iXryyEaFaQ" title="Video Gas Natural" allowfullscreen></iframe>
+  </section>
+
+  <section class="graficos">
+    <h2>Gráficos y Estadísticas</h2>
+   <style>
+    
+    
+    h2 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .chart-container {
+      width: 80%;
+      margin: auto;
+      background-color: white;
+      border-radius: 10px;
+    }
+  </style>
+   <h2>Producción de Energia Gas Natural en los ultimos años</h2>
+  <div class="chart-container">
+    <canvas id="energiaChart"></canvas>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('energiaChart').getContext('2d');
+    const energiaChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: [
+          '2020',
+          '2021',
+          '2022',
+          '2023',
+          '2024'
+        ],
+        datasets: [{
+          label: 'Producción (TWh)',
+          data: [8.7, 10.8 , 10.2 ,9.6 , 11],
+          backgroundColor: [
+            '#f4d03f',
+            '#f1c40f',
+            '#f5b041',
+            '#d4ac0d',
+            '#f7dc6f '
+          ],
+          borderRadius: 5
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: false },
+          title: {
+            display: true,
+            text: 'Producción Anual (TWh)',
+            font: { size: 18 }
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Teravatios hora (TWh)'
+            }
+          },
+          x: {
+            title: {
+              display: true,
+              text: 'Año'
+            }
+          }
+        }
+      }
+    });
+  </script>
+  </section>
+</body>
+</html>
