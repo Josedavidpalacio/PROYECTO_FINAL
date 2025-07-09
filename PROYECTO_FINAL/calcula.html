@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Calcula tu Consumo</title>
+  <link rel="stylesheet" href="estilo.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">🌱 Energías</div>
+    <nav>
+      <ul class="menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li class="dropdown">
+          <a href="#">Tipos de Energía ▾</a>
+          <ul class="submenu">
+            <li><span>Renovables ▸</span>
+              <ul>
+                <li><a href="hidroelectrica.html">Hidroeléctrica</a></li>
+                <li><a href="solar.html">Solar</a></li>
+                <li><a href="eolica.html">Eólica</a></li>
+                <li><a href="biomasa.html">Biomasa</a></li>
+              </ul>
+            </li>
+            <li><span>No Renovables ▸</span>
+              <ul>
+                <li><a href="gas.html">Gas Natural</a></li>
+                <li><a href="carbon.html">Carbón</a></li>
+                <li><a href="acpm.html">ACPM</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="calcula.html">Calcula tu consumo</a></li>
+        <li><a href="quienes.html">¿Quiénes somos?</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="banner">
+    <h1>Calcula tu consumo energético</h1>
+    <p>Ingresa la información de tus electrodomésticos y hábitos para saber cuánto consumes al mes.</p>
+  </section>
+  <br>
+  <br>
+  <br>
+
+  <section class="formulario">
+    <form id="consumoForm">
+      <label for="horas">Horas de uso al día:</label>
+      <input type="number" id="horas" name="horas" required />
+
+      <label for="potencia">Potencia del dispositivo (Watts):</label>
+      <input type="number" id="potencia" name="potencia" required />
+
+      <label for="dias">Días de uso al mes:</label>
+      <input type="number" id="dias" name="dias" required />
+
+      <button type="submit">Calcular Consumo</button>
+    </form>
+
+    <div id="resultado" style="margin-top: 20px; font-weight: bold;"></div>
+  </section>
+
+  <script>
+    document.getElementById("consumoForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const horas = parseFloat(document.getElementById("horas").value);
+      const potencia = parseFloat(document.getElementById("potencia").value);
+      const dias = parseFloat(document.getElementById("dias").value);
+
+      const consumoKwh = (horas * potencia * dias) / 1000;
+      document.getElementById("resultado").innerText = 
+        `Tu consumo estimado es de ${consumoKwh.toFixed(2)} kWh al mes.`;
+    });
+  </script>
+  <br>
+  <br>
+  <br>
+  
+   <footer>
+    <p>© 2025 Energías Modernas - Todos los derechos reservados</p>
+  </footer>
+  <button id="toggleModo" class="modo-toggle">☀️/🌙</button>
+  <script src="js.js"></script>
+</body>
+</html>
